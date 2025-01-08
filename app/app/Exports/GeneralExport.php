@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -7,14 +6,13 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use App\Models\Scholarship;
 use App\Models\ScholarshipQualification;
 use App\Models\CurrentSemester;
-use App\Models\Degree;
 
 class GeneralExport implements FromCollection, WithHeadings
 {
     protected $id;
     protected $query;
 
-    public function __construct($id, $query=null)
+    public function __construct($id, $query = null)
     {
         $this->id = $id;
         $this->query = $query;
@@ -26,12 +24,7 @@ class GeneralExport implements FromCollection, WithHeadings
     public function collection()
     {
         $scholarship = Scholarship::find($this->id);
-        // $applicants = $scholarship->applicants()
-        //                           ->where('fresh_renewal', 'Fresh')
-        //                           ->where($this->query) // Apply additional query conditions
-        //                           ->get();
-        $applicants = $scholarship->applicants($this->query)->where('fresh_renewal', 'Fresh')->get();
-
+        $applicants = $scholarship->applicants($this->query)->get(); // Removed 'fresh_renewal' condition
 
         $data = [];
         $sn = 1;
@@ -65,6 +58,8 @@ class GeneralExport implements FromCollection, WithHeadings
                 "Bank" => $applicant->bank_branch,
                 "Account Title" => $applicant->ac_title,
                 "Account No" => $applicant->ac_no,
+                "Scholarship Status" => $applicant->pivot->status ?? "",
+                "Remarks" => $applicant->pivot->remarks ?? "",
                 "Status" => $applicant->fresh_renewal
             ];
 
@@ -98,6 +93,8 @@ class GeneralExport implements FromCollection, WithHeadings
             "Bank",
             "Account Title",
             "Account No",
+            "Scholarship Status",
+            "Remarks",
             "Status"
         ];
     }
