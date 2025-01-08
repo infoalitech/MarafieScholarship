@@ -28,14 +28,23 @@ class Scholarship extends Model
     
     
 
-        public function users(){
+    public function users(){
         return $this->belongsToMany(User::class,'user_scholarships','job_id','user_id');
     }
 
     
-    public function applicants(){
-        return $this->belongsToMany(ScholarshipApplicant::class,'kiusc_job_app_map','job_id','applicant_id')->withPivot('remarks', 'status','apply_date');;
+    public function applicants($query = null)
+    {
+        $relation = $this->belongsToMany(ScholarshipApplicant::class, 'kiusc_job_app_map', 'job_id', 'applicant_id')
+                         ->withPivot('remarks', 'status', 'apply_date');
+    
+        if ($query) {
+            $relation->wherePivot('status', $query);
+        }
+    
+        return $relation;
     }
+    
 
 
 }

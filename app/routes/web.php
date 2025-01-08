@@ -6,7 +6,7 @@ use App\Http\Controllers\web\GuardianController;
 use App\Http\Controllers\web\EducationalExperienceController;
 use App\Http\Controllers\web\ScholarshipController;
 use App\Http\Controllers\web\CurrentSemesterComtroller;
-use App\Http\Controllers\web\ExportController;
+use App\Http\Controllers\web\ExportController as WebExportController;
 use App\Http\Controllers\web\DegreeProgramController;
 use App\Http\Controllers\web\StudyFieldController;
 use App\Http\Controllers\Admin\AdminController;
@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminController;
 
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\Admin\ExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,14 +26,25 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/export_fresh',[ExportController::class,'fresh'])->name('export_fresh');
-Route::get('/export_renewal',[ExportController::class,'Renewal'])->name('export_renewal');
-Route::get('/freshGeneral',[ExportController::class,'freshGeneral'])->name('freshGeneral');
-Route::get('/renewalGeneral',[ExportController::class,'renewalGeneral'])->name('renewalGeneral');
-Route::get('/freshSadaat',[ExportController::class,'freshSadaat'])->name('freshSadaat');
-Route::get('/renewalSadaat',[ExportController::class,'renewalSadaat'])->name('renewalSadaat');
-Route::get('/freshAbshaar',[ExportController::class,'freshAbshaar'])->name('freshAbshaar');
-Route::get('/renewalAbshaar',[ExportController::class,'renewalAbshaar'])->name('renewalAbshaar');
+
+
+// Export routes for scholarship details
+Route::prefix('admin/export')->group(function () {
+    Route::get('/all/{id}', [ExportController::class, 'all'])->name('export.all');
+    Route::get('/pending/{id}', [ExportController::class, 'pending'])->name('export.pending');
+    Route::get('/accepted/{id}', [ExportController::class, 'accepted'])->name('export.accepted');
+    Route::get('/rejected/{id}', [ExportController::class, 'rejected'])->name('export.rejected');
+    Route::get('/review/{id}', [ExportController::class, 'review'])->name('export.review');
+});
+
+Route::get('/export_fresh',[WebExportController::class,'fresh'])->name('export_fresh');
+Route::get('/export_renewal',[WebExportController::class,'Renewal'])->name('export_renewal');
+Route::get('/freshGeneral',[WebExportController::class,'freshGeneral'])->name('freshGeneral');
+Route::get('/renewalGeneral',[WebExportController::class,'renewalGeneral'])->name('renewalGeneral');
+Route::get('/freshSadaat',[WebExportController::class,'freshSadaat'])->name('freshSadaat');
+Route::get('/renewalSadaat',[WebExportController::class,'renewalSadaat'])->name('renewalSadaat');
+Route::get('/freshAbshaar',[WebExportController::class,'freshAbshaar'])->name('freshAbshaar');
+Route::get('/renewalAbshaar',[WebExportController::class,'renewalAbshaar'])->name('renewalAbshaar');
 
 
 

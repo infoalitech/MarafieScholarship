@@ -22,8 +22,23 @@
                 <li><a class="nav-link scrollto" href="{{ route('current.index')}}">{{ __('Current Academic') }}</a></li>
                 <li><a class="nav-link scrollto" href="{{ route('scholarship.index')}}">{{ __('Scholarships') }}</a></li>
               @else
-
-              
+              <li class="dropdown">
+                <a href="#">Exports</a>
+                <ul>
+                @foreach($sidebarscholarships as $sidebarscholarship)
+                  <li class="dropdown">
+                      <a href="#">{{ $sidebarscholarship->post }}</a>
+                      <ul>
+                          <li><a href="{{ url('/admin/export/all/' . $sidebarscholarship->id) }}">{{ __('All') }}</a></li>
+                          <li><a href="{{ url('/admin/export/pending/' . $sidebarscholarship->id) }}">{{ __('Pending') }}</a></li>
+                          <li><a href="{{ url('/admin/export/accepted/' . $sidebarscholarship->id) }}">{{ __('Accepted') }}</a></li>
+                          <li><a href="{{ url('/admin/export/rejected/' . $sidebarscholarship->id) }}">{{ __('Rejected') }}</a></li>
+                          <li><a href="{{ url('/admin/export/review/' . $sidebarscholarship->id) }}">{{ __('Under Review') }}</a></li>
+                      </ul>
+                  </li>
+                @endforeach
+              </ul>
+            </li>
               <!--<li><a class="nav-link scrollto" href="{{ route('admin.applicants')}}">{{ __('Applicants') }}</a></li>-->
               <li><a class="nav-link scrollto" href="{{ route('admin.scholarships')}}">{{ __('Scholarships') }}</a></li>
               
