@@ -1,0 +1,40 @@
+[21-Sep-2023 17:21:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/scholarship.marafiepak.org/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/scholarship.marafiepak.org/config/cache.php on line 18
+[24-Sep-2023 15:45:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/scholarship.marafiepak.org/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/scholarship.marafiepak.org/config/cache.php on line 18
+[02-Jun-2024 16:44:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/scholarship.marafiepak.org/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/scholarship.marafiepak.org/config/cache.php on line 18
+[04-Jun-2024 06:51:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/scholarship.marafiepak.org/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/scholarship.marafiepak.org/config/cache.php on line 18
+[31-Oct-2024 10:48:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/config/cache.php on line 18
+[31-Oct-2024 10:49:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/config/cache.php on line 18
+[01-Nov-2024 17:03:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/config/cache.php on line 18
+[01-Nov-2024 17:03:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/config/cache.php on line 18
+[01-Nov-2024 18:25:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/config/cache.php on line 18
+[01-Nov-2024 18:25:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/marafiepak/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/marafiepak/public_html/config/cache.php on line 18
