@@ -13,13 +13,13 @@ class CreateScholarshipAppMapsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_app_maps', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('scholarship_applicant_id')->nullable();
-        //     $table->string('scholarship_id')->nullable();
-        //     $table->string('apply_date')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarship_app_maps', function (Blueprint $table) {
+            $table->id();
+            $table->string('scholarship_applicant_id')->nullable();
+            $table->string('scholarship_id')->nullable();
+            $table->string('apply_date')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

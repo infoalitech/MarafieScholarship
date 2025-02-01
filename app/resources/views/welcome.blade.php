@@ -30,6 +30,173 @@
   </section><!-- End Hero -->
   <main id="main">
     <div class="wrapper">
+
+
+
+    @Auth
+      @if(Auth::user()->type !="applicant")
+
+      <div class="container">
+        <h1 class="text-center my-4">Scholarship Dashboard</h1>
+
+        <!-- Info Cards -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-bg-primary text-center">
+                    <div class="card-body">
+                        <h3>Active Scholarships</h3>
+                        <h2>{{ $activeScholarships }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-bg-success text-center">
+                    <div class="card-body">
+                        <h3>Total Applicants</h3>
+                        <h2>{{ $totalApplicants }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-bg-warning text-center">
+                    <div class="card-body">
+                        <h3>Applications</h3>
+                        <h2>{{ $applicationsPerScholarship->sum('count') }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row">
+            <div class="col-md-6 chart-container">
+                <h3>Applications per Scholarship</h3>
+                <canvas id="applicationsChart"></canvas>
+            </div>
+            <div class="col-md-6 chart-container">
+                <h3>Gender Distribution</h3>
+                <canvas id="genderChart"></canvas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 chart-container">
+                <h3>Monthly Applications</h3>
+                <canvas id="monthlyApplicationsChart"></canvas>
+            </div>
+            <div class="col-md-6 chart-container">
+                <h3>Scholarship Activity</h3>
+                <canvas id="activityChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <style>
+          .chart-container {
+              margin: 20px 0;
+          }
+          h2, h3 {
+              text-align: center;
+              margin-top: 20px;
+          }
+          .card {
+              margin: 10px;
+          }
+      </style>
+
+<script>
+  // Applications per Scholarship (Bar Chart)
+  const applicationsData = {!! json_encode($applicationsPerScholarship->map(fn($item) => $item->count)) !!};
+  const scholarshipLabels = {!! json_encode($applicationsPerScholarship->map(fn($item) => 'Scholarship ' . $item->scholarship_id)) !!};
+
+  const ctx = document.getElementById('applicationsChart').getContext('2d');
+  new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: scholarshipLabels,
+          datasets: [{
+              label: 'Applications per Scholarship',
+              data: applicationsData,
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: true,
+          plugins: {
+              legend: { display: false },
+              tooltip: { enabled: true }
+          }
+      }
+  });
+
+  // Gender Distribution (Pie Chart)
+  const genderLabels = {!! json_encode(array_keys($genderDistribution->toArray())) !!};
+  const genderData = {!! json_encode(array_values($genderDistribution->toArray())) !!};
+
+  const genderCtx = document.getElementById('genderChart').getContext('2d');
+  new Chart(genderCtx, {
+      type: 'pie',
+      data: {
+          labels: genderLabels,
+          datasets: [{
+              label: 'Gender Distribution',
+              data: genderData,
+              backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+              borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+              borderWidth: 1
+          }]
+      },
+      options: { responsive: true }
+  });
+
+  // Monthly Applications (Line Chart)
+  const monthlyLabels = {!! json_encode(array_keys($monthlyApplications->toArray())) !!};
+  const monthlyData = {!! json_encode(array_values($monthlyApplications->toArray())) !!};
+
+  const monthlyCtx = document.getElementById('monthlyApplicationsChart').getContext('2d');
+  new Chart(monthlyCtx, {
+      type: 'line',
+      data: {
+          labels: monthlyLabels,
+          datasets: [{
+              label: 'Monthly Applications',
+              data: monthlyData,
+              fill: false,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              tension: 0.1
+          }]
+      },
+      options: { responsive: true }
+  });
+
+  // Scholarship Activity (Doughnut Chart)
+  const activityLabels = ['Active', 'Inactive'];
+  const activityData = {!! json_encode(array_values($scholarshipActivity->toArray())) !!};
+
+  const activityCtx = document.getElementById('activityChart').getContext('2d');
+  new Chart(activityCtx, {
+      type: 'doughnut',
+      data: {
+          labels: activityLabels,
+          datasets: [{
+              label: 'Scholarship Activity',
+              data: activityData,
+              backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+              borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
+              borderWidth: 1
+          }]
+      },
+      options: { responsive: true }
+  });
+</script>
+
+      @endif
+    @endauth
     <div class="container py-3">
 
       <blockquote>

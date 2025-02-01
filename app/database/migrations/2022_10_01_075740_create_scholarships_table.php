@@ -13,18 +13,18 @@ class CreateScholarshipsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarships', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('post')->nullable();
-        //     $table->string('date_of_advertisement')->nullable();
-        //     $table->string('last_date')->nullable();
-        //     $table->string('description')->nullable();
-        //     $table->string('condition')->nullable();
-        //     $table->string('criteria_id')->nullable();
-        //     $table->string('approval_id')->nullable();
-        //     $table->string('active')->default('1');
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarships', function (Blueprint $table) {
+            $table->id();
+            $table->string('post')->nullable();
+            $table->string('date_of_advertisement')->nullable();
+            $table->string('last_date')->nullable();
+            $table->string('description')->nullable();
+            $table->string('condition')->nullable();
+            $table->string('criteria_id')->nullable();
+            $table->string('approval_id')->nullable();
+            $table->string('active')->default('1');
+            $table->timestamps();
+        });
     }
 
     /**

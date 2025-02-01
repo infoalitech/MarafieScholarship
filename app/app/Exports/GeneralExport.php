@@ -26,6 +26,7 @@ class GeneralExport implements FromCollection, WithHeadings
         $scholarship = Scholarship::find($this->id);
         $applicants = $scholarship->applicants($this->query)->get(); // Removed 'fresh_renewal' condition
 
+        // dd($this->query);
         $data = [];
         $sn = 1;
 
