@@ -15,6 +15,7 @@ class ExportController extends Controller
     {
         $scholarship = Scholarship::findOrFail($id);
         $fileName = Str::slug($scholarship->post) . '_all.xlsx';
+        // dd($fileName);
         return Excel::download(new GeneralExport($id), $fileName);
     }
 
