@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Scholarship;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,8 +26,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $sidebarscholarships = Scholarship::all();
-        // dd($sidebarscholarships);
-        view()->share('sidebarscholarships', $sidebarscholarships);
+        if (Schema::hasTable('scholarships')) {
+            $sidebarscholarships = Scholarship::all();
+            // dd($sidebarscholarships);
+            view()->share('sidebarscholarships', $sidebarscholarships);
+        }
+
     }
 }
