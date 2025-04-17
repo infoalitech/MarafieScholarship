@@ -13,13 +13,13 @@ class CreateScholarshipQualEquisTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_qual_equis', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('scholarship_qualification_id')->nullable();
-        //     $table->string('equivalent_to')->nullable();
-        //     $table->string('scholarship_applicant_id')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarship_qual_equis', function (Blueprint $table) {
+            $table->id();
+            $table->string('scholarship_qualification_id')->nullable();
+            $table->string('equivalent_to')->nullable();
+            $table->string('scholarship_applicant_id')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

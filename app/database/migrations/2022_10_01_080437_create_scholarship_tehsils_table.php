@@ -13,13 +13,13 @@ class CreateScholarshipTehsilsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_tehsils', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name')->nullable();
-        //     $table->string('scholarship_district_id')->nullable();
+        Schema::create('scholarship_tehsils', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->string('scholarship_district_id')->nullable();
 
-        //     $table->timestamps();
-        // });
+            $table->timestamps();
+        });
     }
 
     /**

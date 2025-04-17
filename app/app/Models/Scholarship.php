@@ -11,7 +11,7 @@ class Scholarship extends Model
 {
     use HasFactory;
 
-    protected $table="kiusc_jobs";
+    // // protected $table="kiusc_jobs";
         public $timestamps = false;
         protected static function booted()
     {

@@ -13,15 +13,15 @@ class CreateScholarshipDistinctionsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_distinctions', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('title')->nullable();
-        //     $table->string('description')->nullable();
-        //     $table->string('scholarship_applicant_id')->nullable();
-        //     $table->string('countable')->nullable();
-        //     $table->string('active')->default('1');
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarship_distinctions', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('scholarship_applicant_id')->nullable();
+            $table->string('countable')->nullable();
+            $table->string('active')->default('1');
+            $table->timestamps();
+        });
     }
 
     /**

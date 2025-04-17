@@ -13,24 +13,24 @@ class CreateScholarshipCriteriasTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_criterias', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('description')->nullable();
-        //     $table->string('ssc')->nullable();
-        //     $table->string('hssc')->nullable();
-        //     $table->string('bachelor')->nullable();
-        //     $table->string('master')->nullable();
-        //     $table->string('mphil')->nullable();
-        //     $table->string('phd')->nullable();
-        //     $table->string('experience')->nullable();
-        //     $table->string('max_exp')->nullable();
-        //     $table->string('distinction')->nullable();
-        //     $table->string('max_dist')->nullable();
-        //     $table->string('publication')->nullable();
-        //     $table->string('max_publication')->nullable();
-        //     $table->string('active')->default('1');
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarship_criterias', function (Blueprint $table) {
+            $table->id();
+            $table->string('description')->nullable();
+            $table->string('ssc')->nullable();
+            $table->string('hssc')->nullable();
+            $table->string('bachelor')->nullable();
+            $table->string('master')->nullable();
+            $table->string('mphil')->nullable();
+            $table->string('phd')->nullable();
+            $table->string('experience')->nullable();
+            $table->string('max_exp')->nullable();
+            $table->string('distinction')->nullable();
+            $table->string('max_dist')->nullable();
+            $table->string('publication')->nullable();
+            $table->string('max_publication')->nullable();
+            $table->string('active')->default('1');
+            $table->timestamps();
+        });
     }
 
     /**

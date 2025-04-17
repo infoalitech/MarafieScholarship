@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ScholarshipSkill extends Model
 {
     use HasFactory;
-    protected $table="kiusc_job_skills";
+    // protected $table="kiusc_job_skills";
     public $timestamps = false;
 }

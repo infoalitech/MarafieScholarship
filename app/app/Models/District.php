@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class District extends Model
 {
     use HasFactory;
-    protected $table="kiusc_districts";
+    // protected $table="kiusc_districts";
     public $timestamps = false;
 }

@@ -13,10 +13,10 @@ class CreateScholarshipResultsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_results', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarship_results', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 
     /**

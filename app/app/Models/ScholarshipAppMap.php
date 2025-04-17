@@ -9,7 +9,7 @@ class ScholarshipAppMap extends Model
 {
     use HasFactory;
 
-    protected $table="kiusc_job_app_map";
+    // protected $table="kiusc_job_app_map";
     public $timestamps = false;
     
     public function applied(){

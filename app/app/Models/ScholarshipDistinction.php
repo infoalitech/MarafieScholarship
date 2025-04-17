@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ScholarshipDistinction extends Model
 {
     use HasFactory;
-    protected $table="kiusc_job_distinctions";
+    // protected $table="kiusc_job_distinctions";
     public $timestamps = false;
 }

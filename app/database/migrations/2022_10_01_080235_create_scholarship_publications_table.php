@@ -13,15 +13,15 @@ class CreateScholarshipPublicationsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_publications', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('title')->nullable();
-        //     $table->string('journal')->nullable();
-        //     $table->string('impact_factor')->nullable();
-        //     $table->string('scholarship_applicant_id')->nullable();
-        //     $table->string('countable')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarship_publications', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->string('journal')->nullable();
+            $table->string('impact_factor')->nullable();
+            $table->string('scholarship_applicant_id')->nullable();
+            $table->string('countable')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

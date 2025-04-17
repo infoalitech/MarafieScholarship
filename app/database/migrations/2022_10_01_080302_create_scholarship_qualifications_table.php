@@ -13,19 +13,19 @@ class CreateScholarshipQualificationsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_qualifications', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('degree_id')->nullable();
-        //     $table->string('scholarship_applicant_id')->nullable();
-        //     $table->string('institute')->nullable();
-        //     $table->string('year')->nullable();
-        //     $table->string('obt_marks')->nullable();
-        //     $table->string('total_marks')->nullable();
-        //     $table->string('obt_gpa')->nullable();
-        //     $table->string('percentage')->nullable();
-        //     $table->string('division')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarship_qualifications', function (Blueprint $table) {
+            $table->id();
+            $table->string('degree_id')->nullable();
+            $table->string('scholarship_applicant_id')->nullable();
+            $table->string('institute')->nullable();
+            $table->string('year')->nullable();
+            $table->string('obt_marks')->nullable();
+            $table->string('total_marks')->nullable();
+            $table->string('obt_gpa')->nullable();
+            $table->string('percentage')->nullable();
+            $table->string('division')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

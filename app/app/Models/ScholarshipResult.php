@@ -9,6 +9,6 @@ class ScholarshipResult extends Model
 {
     use HasFactory;
 
-    protected $table="kiusc_job_result";
+    // protected $table="kiusc_job_result";
     public $timestamps = false;
 }

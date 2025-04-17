@@ -19,7 +19,7 @@ class ScholarshipApplicant extends Model
     ];
     
     protected $primaryKey="id";
-    protected $table="kiusc_job_applicants";
+    // protected $table="kiusc_job_applicants";
     public $timestamps = false;
     
     public function user(){

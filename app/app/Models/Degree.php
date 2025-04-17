@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Degree extends Model
 {
     use HasFactory;
-    protected $table="kiusc_degrees";
+    // protected $table="kiusc_degrees";
     public $timestamps = false;
 
     public function scholarshipQualifications(){

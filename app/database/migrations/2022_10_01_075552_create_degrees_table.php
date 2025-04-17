@@ -13,12 +13,12 @@ class CreateDegreesTable extends Migration
      */
     public function up()
     {
-        // Schema::create('degrees', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('degree_title');
-        //     $table->string('d_level_id')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('degrees', function (Blueprint $table) {
+            $table->id();
+            $table->string('degree_title');
+            $table->string('d_level_id')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

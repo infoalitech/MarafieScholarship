@@ -9,6 +9,6 @@ class ScholarshipGpaRang extends Model
 {
     use HasFactory;
 
-    protected $table="kiusc_job_gpa_rang";
+    // protected $table="kiusc_job_gpa_rang";
     public $timestamps = false;
 }

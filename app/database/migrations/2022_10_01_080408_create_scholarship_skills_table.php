@@ -13,13 +13,13 @@ class CreateScholarshipSkillsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('scholarship_skills', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('skill_title')->nullable();
-        //     $table->string('description')->nullable();
-        //     $table->string('scholarship_applicant_id')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('scholarship_skills', function (Blueprint $table) {
+            $table->id();
+            $table->string('skill_title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('scholarship_applicant_id')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

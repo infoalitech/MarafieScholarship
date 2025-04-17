@@ -9,6 +9,6 @@ class ScholarshipQualEqui extends Model
 {
     use HasFactory;
 
-    protected $table="kiusc_job_qual_equi";
+    // protected $table="kiusc_job_qual_equi";
     public $timestamps = false;
 }
